@@ -5,10 +5,10 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Luan - reveal.js - The HTML Presentation Framework</title>
+		<title>JUDCon2013 - Big Data - Survival Guide!</title>
 
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
+		<meta name="description" content="Helping to understand the past, the present and future, Big Data is amazing subject. In this short presentation I want to invite you to a journey that will show about the history and the architecture of Big Data. The presentation is using reveal.js + HTML5">
+		<meta name="author" content="Luan Cestari">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -29,14 +29,96 @@
 		<!--[if lt IE 9]>
 		<script src="javascripts/html5shiv.js"></script>
 		<![endif]-->
+
+		<link href="stylesheets/nv.d3.css" rel="stylesheet" type="text/css">
+		<style>
+		.mypiechart {
+		  width: 800px;
+		  border: 2px;
+		  margin-left: 225px;
+		  margin-top: 40px;
+		}
+		</style>
+		<script type="text/javascript" src="javascripts/d3.v2.min.js"></script>
+		<script type="text/javascript" src="javascripts/nv.d3.min.js"></script>
+		<script type="text/javascript" src="javascripts/legend.js"></script>
+		<script type="text/javascript" src="javascripts/pieChart.js"></script>
+		<script type="text/javascript" src="javascripts/utils.js"></script>
+<script>
+
+  var testdata = [
+    {
+      key: "One",
+      y: 5
+    },
+    {
+      key: "Two",
+      y: 2
+    },
+    {
+      key: "Three",
+      y: 9
+    },
+    {
+      key: "Four",
+      y: 7
+    },
+    {
+      key: "Five",
+      y: 4
+    },
+    {
+      key: "Six",
+      y: 3
+    },
+    {
+      key: "Seven",
+      y: .5
+    }
+  ];
+
+
+nv.addGraph(function() {
+    var width = 500,
+        height = 500;
+
+    var chart = nv.models.pieChart()
+        .x(function(d) { return d.key })
+        .y(function(d) { return d.y })
+        //.showLabels(false)
+        .values(function(d) { return d })
+        .color(d3.scale.category10().range())
+        .width(width)
+        .height(height);
+
+      d3.select("#test1")
+          .datum([testdata])
+        .transition().duration(1200)
+          .attr('width', width)
+          .attr('height', height)
+          .call(chart);
+
+    chart.dispatch.on('stateChange', function(e) { nv.log('New State:', JSON.stringify(e)); });
+
+    return chart;
+});
+
+</script>
+
 	</head>
 
 	<body>
 
 		<div class="reveal">
 
-			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
+				<section>
+					<h1>Big Data - Survival Guide!</h1>
+					<h3>JUDCon2013</h3>
+					<p>
+						<small>Created by <a href="http://superseniordevelopers.blogspot.com">Luan Cestari</a> / <a href="https://plus.google.com/108300913932349459095/about">G+</a>/ <a href="http://www.facebook.com/luan.cestari">Facebook</a>/ <a href="http://twitter.com/@BR_LuanCestari">@BR_LuanCestari</a></small>
+					</p>
+				</section>
 
 				<section>
 					<h1>Reveal.js</h1>
@@ -56,6 +138,11 @@
 					<aside class="notes">
 						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
 					</aside>
+				</section>
+				<section>
+					<h2>Test Up</h2>
+					<svg id="test1" class="mypiechart"></svg>
+
 				</section>
 
 				<!-- Example of nested vertical slides -->
@@ -349,17 +436,14 @@ function linkify( selector ) {
 		<script src="javascripts/reveal.min.js"></script>
 
 		<script>
-
-			// Full list of configuration options available here:
-			// https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
 				controls: true,
 				progress: true,
 				history: true,
 				center: true,
-
-				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+                autoSlide: 30*1000,
+				theme: Reveal.getQueryHash().theme , // Sky Beige Simple Serif Night /css/theme
+				transition: Reveal.getQueryHash().transition || 'zoom', // default/cube/page/concave/zoom/linear/fade/none
 
 				// Optional libraries used to extend on reveal.js
 				dependencies: [
@@ -378,16 +462,14 @@ function linkify( selector ) {
 		<!-- Everything below this point is unrelated to the slideshow -->
 
 		<div class="share-reveal" style="display: none; position: absolute; bottom: 10px; left: 50%; margin-left: -205px; z-index: 20;">
-			<a href="http://twitter.com/share" class="twitter-share-button" data-text="reveal.js - an HTML presentation framework from @hakimel." data-url="http://lab.hakim.se/reveal-js" data-count="small" data-related="hakimel"></a>
+			<a href="http://twitter.com/share" class="twitter-share-button" data-text="#JUDCon2013 - Big Data - Survival Guide! - @BR_LuanCestari" data-url="http://luan-cestari.github.io/judcon2013_bigdata?print-pdf" data-count="small" data-related="Luan Cestari"></a>
 
-			<iframe id="facebook-button" src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fapp.hakim.se%2Freveal-js%2F&layout=button_count&show_faces=false&width=93&action=like&font=arial&colorscheme=light&height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:85px; height:24px; position: relative; top: 4px;" allowTransparency="true"></iframe>
+			<iframe id="facebook-button" src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fluan-cestari.github.io%2Fjudcon2013_bigdata%3Fprint-pdf&layout=button_count&show_faces=false&width=93&action=like&font=arial&colorscheme=light&height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:85px; height:24px; position: relative; top: 4px;" allowTransparency="true"></iframe>
 
-			<a class="FlattrButton" style="display:none;" rev="flattr;button:compact;" href="http://lab.hakim.se/reveal-js"></a>
-
-			<a href="https://twitter.com/rvlio" class="twitter-follow-button" data-show-count="false" data-dnt="true">Follow @rvlio</a>
+			<a href="https://twitter.com/BR_LuanCestari" class="twitter-follow-button" data-show-count="false" data-dnt="true">Follow @BR_LuanCestari</a>
 		</div>
 
-		<a class="fork-reveal" style="display: none;" href="https://github.com/hakimel/reveal.js"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/camo.github.com/e6bef7a091f5f3138b8cd40bc3e114258dd68ddf/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub"></a>
+		<a class="fork-reveal" style="display: none;" href="https://github.com/luan-cestari/judcon2013_bigdata"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/camo.github.com/e6bef7a091f5f3138b8cd40bc3e114258dd68ddf/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub"></a>
 
 <script>
 /* <![CDATA[ */
@@ -402,18 +484,6 @@ function linkify( selector ) {
 </script>
 
 		<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-
-		<script type="text/javascript">
-		/* <![CDATA[ */
-			(function() {
-				var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
-				s.type = 'text/javascript';
-				s.async = true;
-				s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
-				t.parentNode.insertBefore(s, t);
-			})();
-		/* ]]> */
-		</script>
 
 		<script>
 			if( !navigator.userAgent.match( /iphone|ipod|android|ipad|blackberry/gi ) && !!document.querySelector ) {
