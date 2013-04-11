@@ -46,7 +46,7 @@
 		<script type="text/javascript" src="javascripts/utils.js"></script>
 <script>
 
-  var testdata = [
+  var chartData = [
     {
       key: "One",
       y: 5
@@ -92,7 +92,7 @@ nv.addGraph(function() {
         .height(height);
 
       d3.select("#test1")
-          .datum([testdata])
+          .datum([chartData])
         .transition().duration(1200)
           .attr('width', width)
           .attr('height', height)
@@ -113,31 +113,69 @@ nv.addGraph(function() {
 
 			<div class="slides">
 				<section>
-					<h1>Big Data - Survival Guide!</h1>
-					<h3>JUDCon2013</h3>
-					<p>
-						<small>Created by <a href="http://superseniordevelopers.blogspot.com">Luan Cestari</a> / <a href="https://plus.google.com/108300913932349459095/about">G+</a>/ <a href="http://www.facebook.com/luan.cestari">Facebook</a>/ <a href="http://twitter.com/@BR_LuanCestari">@BR_LuanCestari</a></small>
-					</p>
-				</section>
-
-				<section>
-					<h1>Reveal.js</h1>
-					<h3>HTML Presentations Made Easy</h3>
-					<p>
-						<small>Created by <a href="http://hakim.se">Hakim El Hattab</a> / <a href="http://twitter.com/hakimel">@hakimel</a></small>
-					</p>
-				</section>
-
-				<section>
-					<h2>Heads Up</h2>
-					<p>
-						reveal.js is a framework for easily creating beautiful presentations using HTML. You'll need a browser with
-						support for CSS 3D transforms to see it in its full glory.
-					</p>
-
+                    <section>
+                        <h1>Big Data - Survival Guide!</h1>
+                        <h3>JUDCon2013</h3>
+                        <p>
+                            <small>Created by <a href="http://superseniordevelopers.blogspot.com">Luan Cestari</a> / <a href="https://plus.google.com/108300913932349459095/about">G+</a>/ <a href="http://www.facebook.com/luan.cestari">Facebook</a>/ <a href="http://twitter.com/@BR_LuanCestari">@BR_LuanCestari</a></small>
+                        </p>
 					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
+                        Hit 's' to see this notes and more
+                        Also use 'esc' to have a overview
 					</aside>
+                    </section>
+					<section>
+						<h2>Who is the presenter?</h2>
+						<p>
+							Luan = algorithms + entrepreneur + computer nerd/geek + open source 
+						</p>
+                        <img width="400" height="400" src="images/01_nerd.jpg" alt="Nerd"/>
+                    </section>
+					<section>
+						<h2>Who are you?</h2>
+						<p class="fragment grow">
+							Are you a boy or a girl? 
+						</p>
+                        <img  src="images/02_pokemon.png" alt="Doctor Oak from pokemon" class="fragment roll-in"/>
+                        <aside class="notes">
+                            -Who knows anything?
+                            -Who tested some product of Big Data?
+                            -Who works with Big Data  
+                        </aside>
+                    </section>
+					<section>
+						<h2>Agenda</h2>
+                        <ul>
+                            <li>History</li>
+                            <li>Introduction to Big Data</li>
+                            <li>Lambda Architecture</li>
+                            <li>Solutions</li>
+                        </ul>
+                        <aside class="notes">
+                        A clean overview of the Big Data market, demystify the term (showing a bit of history of database and pointing some NOSQL
+                        </aside>
+                    </section>
+					<section>
+						<h2>Key points</h2>
+                        <ul>
+                            <li class="fragment highlight-red">Business/Job Opportunities</li>
+                            <li class="fragment highlight-green">Architecture</li>
+                            <li class="fragment highlight-blue">Technologies</li>
+                        </ul>
+                        <aside class="notes">
+                           New companies and in a near future it will require the Big Data)
+                           Integration (there will be a lot demand over this due the key point above and below) (talk about layers, clusters, geolocalization, different versions, different needs(may even need to create a new tool/product))
+                           Different technologies (cases, when to use and what to use)
+                        </aside>
+                    </section>
+				</section>
+
+				<section>
+					<h2>What's Big Data</h2>
+					<ul>
+                        <img src="images/03_big.jpg"/>
+					</ul>
+
 				</section>
 				<section>
 					<h2>Test Up</h2>
